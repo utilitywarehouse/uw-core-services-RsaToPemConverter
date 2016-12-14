@@ -49,21 +49,22 @@ namespace RsaKeyConverter.Converter
         private static string FormatPem(string pem, string keyType)
         {
             var sb = new StringBuilder();
-            sb.AppendFormat("-----BEGIN {0}-----\n", keyType);
+            //sb.AppendFormat("-----BEGIN {0}-----\n", keyType); 
 
-            int line = 1, width = 64;
+            //int line = 1, width = 64;
 
-            while ((line - 1) * width < pem.Length)
-            {
-                int startIndex = (line - 1) * width;
-                int len = line * width > pem.Length
-                              ? pem.Length - startIndex
-                              : width;
-                sb.AppendFormat("{0}\n", pem.Substring(startIndex, len));
-                line++;
-            }
+            //while ((line - 1) * width < pem.Length)
+            //{
+            //    int startIndex = (line - 1) * width;
+            //    int len = line * width > pem.Length
+            //                  ? pem.Length - startIndex
+            //                  : width;
+            //    sb.AppendFormat("{0}\n", pem.Substring(startIndex, len));
+            //    line++;
+            //}
+            sb.Append(pem);
 
-            sb.AppendFormat("-----END {0}-----\n", keyType);
+            //sb.AppendFormat("-----END {0}-----\n", keyType);
             return sb.ToString();
         }
 

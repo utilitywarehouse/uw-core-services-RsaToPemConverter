@@ -14,6 +14,10 @@ namespace RSAToPEMConverter
         public static bool Convert(string xmlpath)
         {
             FileInfo fi = new FileInfo(xmlpath);
+            if(fi.Extension.ToLower() != ".xml")
+            {
+                throw new FormatException("File is not an xml document");
+            }
             Console.WriteLine("Checking File: {0}", fi.FullName);
             if (fi.Exists)
             {
